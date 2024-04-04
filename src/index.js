@@ -63,12 +63,12 @@ module.exports = (ctx) => {
     let userConfig = getUserConfig()
     let headers = getPubHeaders()
     try {
-      await ctx.Request.request({
-        rejectUnauthorized: false,
+      await axios({
         method: 'delete',
         url: `${userConfig['baseUrl']}/${encodeURI(fileName)}`,
         auth: userConfig['auth'],
-        headers: headers
+        headers: headers,
+        httpsAgent: new (require('https').Agent)({ rejectUnauthorized: false })
       })
       // ctx.emit('notification', {
       //   title: '删除提示',
