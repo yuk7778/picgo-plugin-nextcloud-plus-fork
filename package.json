@@ -31,5 +31,6 @@
   "homepage": "https://github.com/compassak/picgo-plugin-nextcloud-plus",
   "dependencies": {
     "js-base64": "^3.7.5"
+    "axios": "^1.6.8"
   }
 }
