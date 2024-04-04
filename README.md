@@ -11,13 +11,12 @@ referenced document:  [nextcloud WebDAV basics](https://docs.nextcloud.com/serve
 + service：Nextcloud service address,  eg：`https://www.domain.com` 
 + username:  Username of the Nextcloud user
 + password:   User password
-+ path: Folder on Nextcloud,  eg：`markdown`
++ path: Folder on Nextcloud,  eg：`/markdown`
 + sync del:  Whether to synchronize the deletion of picture files on nextcloud when deleting pictures from **Picgo Gallery**
 
 #### eg
 
-<img src="https://cloud.compassak.top/s/HBd9fTpp6e4qs4q/preview" alt="image-20230910152204728" style="zoom:60%;" />
-
+<img src="https://cloud.compassak.top/s
 
 
 ## License
