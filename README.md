@@ -14,10 +14,6 @@ referenced document:  [nextcloud WebDAV basics](https://docs.nextcloud.com/serve
 + path: Folder on Nextcloud,  eg：`/markdown`
 + sync del:  Whether to synchronize the deletion of picture files on nextcloud when deleting pictures from **Picgo Gallery**
 
-#### eg
-
-<img src="https://cloud.compassak.top/s
-
 
 ## License
 
