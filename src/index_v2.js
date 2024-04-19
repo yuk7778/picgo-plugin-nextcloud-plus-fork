@@ -52,7 +52,7 @@ module.exports = (ctx) => {
     const user = userConfig.user
     const password = userConfig.password
 	
-	userConfig['directUrl'] = `${host}/apps/sharingpath/${user}${encodeURI(path)}/`
+    userConfig['directUrl'] = `${host}/apps/sharingpath/${user}${encodeURI(path)}/`
     userConfig['baseUrl'] = `${host}/remote.php/dav/files/${user}/${encodeURI(path)}`
     userConfig['shareUrl'] = `${host}/ocs/v2.php/apps/files_sharing/api/v1/shares`
     userConfig['auth'] = getAuth(user, password)
