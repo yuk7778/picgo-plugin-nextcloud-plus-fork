@@ -50,11 +50,12 @@ module.exports = (ctx) => {
     const host = userConfig.host
     const path = userConfig.path
     const user = userConfig.user
+	const cdn = userConfig.cdn
     const password = userConfig.password
 	
-    userConfig['directUrl'] = `${host}/${user}${encodeURI(path)}/`
+    userConfig['directUrl'] = `${cdn}/${user}${encodeURI(path)}/`
     userConfig['baseUrl'] = `${host}/remote.php/dav/files/${user}/${encodeURI(path)}`
-    //userConfig['shareUrl'] = `${host}/ocs/v2.php/apps/files_sharing/api/v1/shares`
+    userConfig['shareUrl'] = `${host}/ocs/v2.php/apps/files_sharing/api/v1/shares`
     userConfig['auth'] = getAuth(user, password)
 
     return userConfig
@@ -137,16 +138,15 @@ module.exports = (ctx) => {
                     minVersion: 'TLSv1.2' // 指定最低支持的TLS版本
                 }
             });
-
-            //let body = await axios.post(userConfig['shareUrl'], {
-            //    path: `${userConfig.path}/${image.fileName}`,
-            //    shareType: 3
-            //}, {
-            //    headers: headers,
-            //    https: {
-            //        minVersion: 'TLSv1.2' // 指定最低支持的TLS版本
-            //    }
-            //});
+            let body = await axios.post(userConfig['shareUrl'], {
+                path: `${userConfig.path}/${image.fileName}`,
+                shareType: 3
+            }, {
+                headers: headers,
+                https: {
+                    minVersion: 'TLSv1.2' // 指定最低支持的TLS版本
+                }
+            });
 
             delete image.base64Image;
             delete image.buffer;
@@ -194,6 +194,14 @@ module.exports = (ctx) => {
         required: true,
         message: '服务地址',
         alias: '服务地址'
+      },
+	  {
+        name: 'cdn',
+        type: 'input',
+        default: userConfig.cdn,
+        required: true,
+        message: 'cdn',
+        alias: 'cdn'
       },
       {
         name: 'user',
